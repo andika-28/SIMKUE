@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+/* Custom scrollbar for modern sleek SaaS look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print Stylesheet Optimization */
+@media print {
+  /* Hide non-printable elements */
+  nav,
+  aside,
+  header,
+  footer,
+  #auth-demo-toolbar,
+  #toast-notification,
+  .print\\:hidden,
+  button:not(.printable-button),
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Printable container resets */
+  .printable-document,
+  #printable-document-content,
+  #modal-voucher-kas,
+  #modal-yearly-receipt,
+  #bill-receipt-modal,
+  #arrears-invoice-print-content,
+  #student-profile-print-content,
+  #cashbook-print-content,
+  #ringkasan-print-content,
+  #print-ringkasan-keuangan-modal,
+  .print-modal-backdrop {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+  }
+
+  /* When printing from an open modal, hide background main dashboard */
+  body.has-print-modal main {
+    display: none !important;
+  }
+
+  /* Keep table borders crisp and page breaks clean */
+  table {
+    page-break-inside: auto;
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+
+  /* Exact background print colors */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
